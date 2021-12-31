@@ -4,7 +4,7 @@
 
 # 메뉴 입력 / 분기 처리 등
 # 사용자 Contact 부분 전담. => Android App으로 대체 / HTML 웹으로 대체
-from db_handler import get_user_list, get_posts
+from db_handler import get_user_list, get_posts, get_all_user_count
 from models import Users
 from models.posts import Posts
 
@@ -40,6 +40,10 @@ def get_user_list_from_db():
         # print(row)  # row한줄 : 하나의 dict로 표현됨.
         user = Users(row)
         user.get_simple_info() # user에 만들어진 메쏘드 활용.
+        
+    # DB한번 더 접근. => 인원수 파악.
+    user_count = get_all_user_count()  # 이 함수는 내부에서 숫자만 추출해서 리턴.
+    print(f'총 수강생 : {user_count}명')
     
 # 2번 누르면 => DB에서 게시글을 페이지에 맞게 요청하는 기능.
 def get_posts_by_page_num(page):
