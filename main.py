@@ -14,6 +14,7 @@ def show_main_menu():
         print('===== 강의 관리 시스템 (LMS) =====')
         print('1. 수강생 목록 조회')
         print('2. 게시글 목록 조회')
+        print('3. 강의 목록 조회')
         print('0. 프로그램 종료')
         print('=================================')
         num = int( input('메뉴 선택 : ') )
@@ -30,6 +31,9 @@ def show_main_menu():
             # DB에서 게시글 목록 조회
             page_num =  int( input('몇페이지의 글을 보겠습니까? : ') )
             get_posts_by_page_num(page_num)
+        elif num == 3:
+            # DB에서 강의목록 + 평균 평점 조회.
+            get_lecutres_from_db()
 
 # 1번 누르면 => DB에서 수강생 목록 조회를 요청하는 기능.
 def get_user_list_from_db():
@@ -52,6 +56,11 @@ def get_posts_by_page_num(page):
         # print(row)
         post = Posts(row)
         post.get_simple_post()
+        
+
+# 3번 누르면 => DB에서 강의목록 + 강의별 평균 점수.
+def get_lecutres_from_db():
+    pass # db_handler 파일 이용 예정.
     
 #  python 명령어로 실행될때 => 위에서부터 밑으로 한줄씩 순서대로 실행됨.
 #  함수도 만들어 두고 나서 사용해야함.
