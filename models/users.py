@@ -1,6 +1,9 @@
 #  users 테이블을 표현하는 용도.
 #  DB의 테이블을 => 프로그램에서 표현하는 클래스들을 => model 이라고 부름.
 
+# 일시 관련 기능들이 모여있는 모듈
+import datetime
+
 class Users:
     
     def __init__(self, info_dict):
@@ -22,4 +25,7 @@ class Users:
     # 사용자의 나이를 계산해주는 기능 추가.
     def get_age(self):
         # 현재 일자의 연도를 얻어오면, 자동으로 현재 나이 계산 가능.
-        return 2021 - self.birth_year + 1
+        
+        now_year = datetime.datetime.now().year
+        
+        return now_year - self.birth_year + 1
