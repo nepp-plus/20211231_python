@@ -1,5 +1,11 @@
+# 사용자에게 보여지는 부분 전담. => View
+
+# Model + Controller + View 조합 코딩 패턴 => MVC 패턴.
+
 # 메뉴 입력 / 분기 처리 등
 # 사용자 Contact 부분 전담. => Android App으로 대체 / HTML 웹으로 대체
+from db_handler import get_user_list
+from models import Users
 
 # 메인 메뉴 출력 기능 (함수)
 def show_main_menu():
@@ -21,7 +27,12 @@ def show_main_menu():
 
 # 1번 누르면 => DB에서 수강생 목록 조회를 요청하는 기능.
 def get_user_list_from_db():
-    print('db_handler에게 사용자 목록을 요청하자.')
+    result = get_user_list()  # DB 전담 클래스가 보내준 결과 (dict여러개 -> tuple) 를 => UI에서 활용.
+    
+    # for문으로 돌아보면서 -> 문구 가공 / 출력
+    for row  in result:
+        # print(row)  # row한줄 : 하나의 dict로 표현됨.
+        user = Users(row)
     
 #  python 명령어로 실행될때 => 위에서부터 밑으로 한줄씩 순서대로 실행됨.
 #  함수도 만들어 두고 나서 사용해야함.
