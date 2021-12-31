@@ -13,3 +13,20 @@ db = connect(
     charset='utf8',  # 연결할 DB가 한글을 utf8 인코딩으로 한글 처리진행.
     cursorclass=DictCursor
 )
+
+# 쿼리수행 전담 변수  (연결된 DB에서 수행)
+cursor = db.cursor()
+
+# 연결 확인용 SELECT문.
+
+# sql문 작성
+# cursor.execute
+# 결과 fetch => 리스트 / dict 등 형태로 변환
+
+sql = 'SELECT * FROM users'
+
+cursor.execute(sql)
+
+result = cursor.fetchall()
+
+print(result)
