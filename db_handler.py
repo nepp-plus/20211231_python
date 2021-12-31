@@ -17,16 +17,4 @@ db = connect(
 # 쿼리수행 전담 변수  (연결된 DB에서 수행)
 cursor = db.cursor()
 
-# 연결 확인용 SELECT문.
-
-# sql문 작성
-# cursor.execute
-# 결과 fetch => 리스트 / dict 등 형태로 변환
-
-sql = 'SELECT * FROM users'
-
-cursor.execute(sql)
-
-result = cursor.fetchall()
-
-print(result)
+#  필요기능들을 함수로 작성.
