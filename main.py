@@ -46,7 +46,7 @@ def get_posts_by_page_num(page):
     result = get_posts(page)
     for row in result:
         post = Posts(row)
-        print(post.title) 
+        post.get_simple_post()
     
 #  python 명령어로 실행될때 => 위에서부터 밑으로 한줄씩 순서대로 실행됨.
 #  함수도 만들어 두고 나서 사용해야함.
