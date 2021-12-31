@@ -9,7 +9,13 @@ class Users:
         self.name = info_dict['name']
         self.birth_year = info_dict['birth_year']
         self.address = info_dict['address']
+        self.gender = info_dict['gender']
         self.height = info_dict['height']
         self.created_at = info_dict['created_at']
         self.friend_id = info_dict['friend_id']
+    
+    # 사용자의 정보를 가공해서 간략하게 출력.
+    # 이름 - 35세, 남성
+    def get_simple_info(self):
+        print(f'{self.name} - {self.birth_year}세,  {self.gender}')
     
