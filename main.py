@@ -31,8 +31,14 @@ def show_main_menu():
             page_num =  int( input('몇페이지의 글을 보겠습니까? : ') )
             get_posts_by_page_num(page_num)
         elif num == 3:
+            print('===== 강의 관리 ======')
             # DB에서 강의목록 + 평균 평점 조회.
             get_lecutres_from_db()
+            # 신규 과목 추가 or 이전 항목으로.
+            print('1. 신규 과목 추가')
+            print('0. 이전으로')
+            print('=====================')
+            lecture_menu_num = int( input('메뉴 선택 : ') )
 
 # 1번 누르면 => DB에서 수강생 목록 조회를 요청하는 기능.
 def get_user_list_from_db():
