@@ -27,6 +27,5 @@ def get_user_list():
     cursor.execute(sql)
     
     result = cursor.fetchall()
-    
     # API => 원하는 쿼리의 수행 결과를, 가공해서 화면단에서 사용할 수 있게 전달해주는 역할.
     return result
