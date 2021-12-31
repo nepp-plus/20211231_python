@@ -60,3 +60,19 @@ def get_all_user_count():  # 결과 자체를 숫자로 리턴해주자.
     cursor.execute(sql)
     result = cursor.fetchone()  # 목록이 아니라, 최초의 한줄만 가져오자.
     return result['user_count']
+
+
+# DB에 강의목록 / 평점 같이 가져오는 함수
+def get_all_lectures():
+    # 강의 목록 (SELECT) / 집계 함수 (GROUP BY) 활용 예시.
+    sql = f"""
+    SELECT l.name, AVG(lr.score) AS avg_score
+    FROM lectures AS l
+    JOIN lecture_review AS lr ON lr.lecture_id = l.id
+    GROUP BY l.id
+    ORDER BY l.name; 
+    """  # """ 여러줄의 str을 쉽게 작성. """
+    
+    cursor.execute(sql)
+    result = cursor.fetchall()
+    return result

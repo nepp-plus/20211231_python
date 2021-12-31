@@ -4,7 +4,7 @@
 
 # 메뉴 입력 / 분기 처리 등
 # 사용자 Contact 부분 전담. => Android App으로 대체 / HTML 웹으로 대체
-from db_handler import get_user_list, get_posts, get_all_user_count
+from db_handler import get_user_list, get_posts, get_all_user_count, get_all_lectures
 from models import Users
 from models.posts import Posts
 
@@ -60,7 +60,9 @@ def get_posts_by_page_num(page):
 
 # 3번 누르면 => DB에서 강의목록 + 강의별 평균 점수.
 def get_lecutres_from_db():
-    pass # db_handler 파일 이용 예정.
+    query_result = get_all_lectures()
+    print(query_result)
+    
     
 #  python 명령어로 실행될때 => 위에서부터 밑으로 한줄씩 순서대로 실행됨.
 #  함수도 만들어 두고 나서 사용해야함.
