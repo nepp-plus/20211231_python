@@ -17,5 +17,9 @@ class Users:
     # 사용자의 정보를 가공해서 간략하게 출력.
     # 이름 - 35세, 남성
     def get_simple_info(self):
-        print(f'{self.name} - {self.birth_year}세,  {self.gender}')
+        print(f'{self.name} - {self.get_age()}세,  {self.gender}')
     
+    # 사용자의 나이를 계산해주는 기능 추가.
+    def get_age(self):
+        # 현재 일자의 연도를 얻어오면, 자동으로 현재 나이 계산 가능.
+        return 2021 - self.birth_year + 1
