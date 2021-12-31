@@ -46,7 +46,7 @@ def get_posts(page):
     # 몇페이지냐에 따른 -> 건너뛸 갯수는 몇개?  쿼리 작성가능.
     offset = (page - 1) * 5
     
-    sql = f"SELECT * FROM posts AS p ORDER BY p.created_at DESC LIMIT {offset}, 5"
+    sql = f"SELECT p.*, u.name AS writer_name FROM posts AS p JOIN users AS u ON p.user_id = u.id ORDER BY p.created_at DESC LIMIT {offset}, 5"
     
     cursor.execute(sql)
     result = cursor.fetchall()

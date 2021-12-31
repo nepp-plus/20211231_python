@@ -45,6 +45,7 @@ def get_user_list_from_db():
 def get_posts_by_page_num(page):
     result = get_posts(page)
     for row in result:
+        # print(row)
         post = Posts(row)
         post.get_simple_post()
     
