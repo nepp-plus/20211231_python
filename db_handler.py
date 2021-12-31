@@ -97,8 +97,8 @@ def get_all_lectures():
 
 
 # DB에 강의 추가 하기 (INSERT INTO)
-def add_lecture(name, max_count, fee):
-    sql = '' # INSERT INTO , 입력받은 항목들.
+def add_lecture(name, max_count, fee, campus):
+    sql = f"INSERT INTO lectures (name, max_count, fee, campus) VALUES ( '{name}', {max_count}, {fee}, '{campus}' )" # INSERT INTO , 입력받은 항목들.
     
     cursor.execute(sql)  # DB에 쿼리 수행 준비. (변동사항 - commit으로 확정 지어야 DB에 기록.)
     db.commit()
