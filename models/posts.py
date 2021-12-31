@@ -6,6 +6,7 @@ class Posts:
         self.content =  data_dict['content']
         self.created_at =  data_dict['created_at']
         self.writer_name = data_dict['writer_name']
+        self.reply_count = data_dict['reply_count']
         
     # 게시글 목록 표시 (간단 정보)
     # 제목 : 실제제목 (8월 5일, 조경진이 작성함.)  => 작성자 이름도 같이 표시.
@@ -13,4 +14,4 @@ class Posts:
         
         format_date = self.created_at.strftime( '%m월 %d일' )
         
-        print(f'제목 : {self.title} ({format_date}, {self.writer_name}이(가) 작성함)')
+        print(f'제목 : {self.title} ({format_date}, {self.writer_name}이(가) 작성함) - 댓글 {self.reply_count}개')

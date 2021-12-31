@@ -51,6 +51,12 @@ def get_posts(page):
     cursor.execute(sql)
     result = cursor.fetchall()
     
+    for row in  result:
+        
+        # row는 dict 로 구성됨. => 새로운 키, 새로운 값 대입 가능.
+        # 결과로 나가기 전에, 각 줄의 dict를 수정해서 내보내자. => 각 게시물별로, 쿼리 재수행. 댓글 몇개? COUNT
+        row['reply_count'] = 0
+    
     return result
 
 # DB에 모든 회원의 수를 물어보는 함수 추가
