@@ -5,8 +5,7 @@
 # 메뉴 입력 / 분기 처리 등
 # 사용자 Contact 부분 전담. => Android App으로 대체 / HTML 웹으로 대체
 from db_handler import get_user_list, get_posts, get_all_user_count, get_all_lectures
-from models import Users
-from models.posts import Posts
+from models import Users, Posts, Lectures
 
 # 메인 메뉴 출력 기능 (함수)
 def show_main_menu():
@@ -61,7 +60,11 @@ def get_posts_by_page_num(page):
 # 3번 누르면 => DB에서 강의목록 + 강의별 평균 점수.
 def get_lecutres_from_db():
     query_result = get_all_lectures()
-    print(query_result)
+    
+    for row in query_result:
+        lecture = Lectures(row)
+        print(lecture.name,  lecture.avg_score)
+    
     
     
 #  python 명령어로 실행될때 => 위에서부터 밑으로 한줄씩 순서대로 실행됨.
